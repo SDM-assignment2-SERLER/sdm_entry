@@ -1,0 +1,19 @@
+<div class="container">
+	
+	<h1>New Entity</h1>
+	<h3><%= @bibliographic.title %></h3>
+	<table class="table">
+		<th>title</th>
+		<th>author</th>
+		<th>year</th>
+		<tr>
+			<td><%= @bibliographic.title%></td>
+			<td><%= @bibliographic.author%></td>
+			<td><%= @bibliographic.year.to_date %></td>
+		</tr>
+	</table>
+
+	<%= render 'form' %>
+
+</div>
+

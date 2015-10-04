@@ -1,0 +1,54 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @bibliographic.title %>
+</p>
+
+<p>
+  <strong>Author:</strong>
+  <%= @bibliographic.author %>
+</p>
+
+<p>
+  <strong>Year:</strong>
+  <%= @bibliographic.year %>
+</p>
+
+<p>
+  <strong>Source:</strong>
+  <%= @bibliographic.source %>
+</p>
+
+<p>
+  <strong>Book:</strong>
+  <%= @bibliographic.book %>
+</p>
+
+<p>
+  <strong>Publisher:</strong>
+  <%= @bibliographic.publisher %>
+</p>
+
+<p>
+  <strong>Doi:</strong>
+  <%= @bibliographic.doi %>
+</p>
+
+<p>
+  <strong>Number:</strong>
+  <%= @bibliographic.number %>
+</p>
+
+<p>
+  <strong>Page:</strong>
+  <%= @bibliographic.page %>
+</p>
+
+<p>
+  <strong>Month:</strong>
+  <%= @bibliographic.month %>
+</p>
+
+<%= link_to 'Edit', edit_bibliographic_path(@bibliographic) %> |
+<%= link_to 'Back', bibliographics_path %>

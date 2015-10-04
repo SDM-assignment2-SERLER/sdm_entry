@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  research_aim: MyString
+  research_metric: MyString
+  evidence_benefit: MyString
+  evidence_context: MyString
+  evidence_result: MyString
+  evidence_intergrity: MyString
+
+two:
+  research_aim: MyString
+  research_metric: MyString
+  evidence_benefit: MyString
+  evidence_context: MyString
+  evidence_result: MyString
+  evidence_intergrity: MyString

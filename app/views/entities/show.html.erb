@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Research aim:</strong>
+  <%= @entity.research_aim %>
+</p>
+
+<p>
+  <strong>Research metric:</strong>
+  <%= @entity.research_metric %>
+</p>
+
+<p>
+  <strong>Evidence benefit:</strong>
+  <%= @entity.evidence_benefit %>
+</p>
+
+<p>
+  <strong>Evidence context:</strong>
+  <%= @entity.evidence_context %>
+</p>
+
+<p>
+  <strong>Evidence result:</strong>
+  <%= @entity.evidence_result %>
+</p>
+
+<p>
+  <strong>Evidence intergrity:</strong>
+  <%= @entity.evidence_intergrity %>
+</p>
+
+<%= link_to 'Edit', edit_bibliographic_entity_path(@bibliographic,@entity) %> 

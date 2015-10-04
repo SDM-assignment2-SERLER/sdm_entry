@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Evidence Methods</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Sort</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @evidence_methods.each do |evidence_method| %>
+      <tr>
+        <td><%= evidence_method.name %></td>
+        <td><%= evidence_method.sort %></td>
+        <td><%= link_to 'Show', evidence_method %></td>
+        <td><%= link_to 'Edit', edit_evidence_method_path(evidence_method) %></td>
+        <td><%= link_to 'Destroy', evidence_method, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Evidence method', new_evidence_method_path %>

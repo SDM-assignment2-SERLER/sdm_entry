@@ -1,0 +1,48 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Bibliographics</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Author</th>
+      <th>Year</th>
+      <th>Source</th>
+      <th>Book</th>
+      <th>Publisher</th>
+      <th>Doi</th>
+      <th>Number</th>
+      <th>Page</th>
+      <th>Month</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @bibliographics.each do |bibliographic| %>
+      <tr>
+        <td><%= bibliographic.title %></td>
+        <td><%= bibliographic.author %></td>
+        <td><%= bibliographic.year %></td>
+        <td><%= bibliographic.source %></td>
+        <td><%= bibliographic.book %></td>
+        <td><%= bibliographic.publisher %></td>
+        <td><%= bibliographic.doi %></td>
+        <td><%= bibliographic.number %></td>
+        <td><%= bibliographic.page %></td>
+        <td><%= bibliographic.month %></td>
+        <td><%= link_to 'Show', bibliographic %></td>
+        <td><%= link_to 'Edit', edit_bibliographic_path(bibliographic) %></td>
+        <td><%= link_to 'Destroy', bibliographic, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Bibliographic', new_bibliographic_path %>
+
+
+<%= render('form') %>

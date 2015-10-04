@@ -1,0 +1,60 @@
+<%= form_for([@bibliographic, @entity]) do |f| %>
+  <% if @entity.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@entity.errors.count, "error") %> prohibited this entity from being saved:</h2>
+
+      <ul>
+      <% @entity.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label :research_aim %><br>
+    <%= f.text_area :research_aim, class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= f.label :research_metric %><br>
+    <%= f.text_area :research_metric, class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= f.label :evidence_benefit %><br>
+    <%= f.text_area :evidence_benefit, class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= f.label :evidence_context %><br>
+    <%= f.text_area :evidence_context, class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= f.label :evidence_result %><br>
+    <%= f.text_area :evidence_result, class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= f.label :evidence_intergrity %><br>
+    <%= f.text_area :evidence_intergrity, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :research_methods %><br>
+    <%= f.select :research_methods, 
+      options_for_select(ResearchMethod.all.collect {|m| [m.name, m.id]}, @entity.research_methods.collect {|m| m.id}), 
+      {}, {class: 'form-control', multiple: true} %>
+  </div>
+  <div class="form-group">
+    <%= f.label :research_participants %><br>
+    <%= f.select :research_participants, ResearchParticipant.all.collect {|m| [m.name, m.id]}, {}, {class: 'form-control', multiple: true} %>
+  </div>
+  <div class="form-group">
+    <%= f.label :evidence_methods %><br>
+    <%= f.select :evidence_methods, EvidenceMethod.all.collect {|m| [m.name, m.id]}, {}, {class: 'form-control', multiple: true} %>
+  </div>
+  <div class="form-group">
+    <%= f.label :methodologies %><br>
+    <%= f.select :methodologies, Methodology.all.collect {|m| [m.name, m.id]}, {}, {class: 'form-control', multiple: true} %>
+  </div>
+  <div class="form-group">
+    <%= f.submit('Save', class: 'btn btn-primary') %>
+  </div>
+<% end %>
