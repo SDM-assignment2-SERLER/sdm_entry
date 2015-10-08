@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Confirmed Bibliographics</h1>
+<h3>Confirmed Articles</h3>
 
 <table class="table">
   <thead>
@@ -35,9 +35,9 @@
         <td><%= bibliographic.month %></td>
         <td><%= bibliographic.rating %></td>
         <% if bibliographic.entity.present? %>
-	        <td><%= link_to 'Edit Entity', edit_bibliographic_entity_path(bibliographic, bibliographic.entity) %></td>
+	        <td><%= link_to 'Edit Article', edit_bibliographic_entity_path(bibliographic, bibliographic.entity) %></td>
         <% else %>
-	        <td><%= link_to 'New Entity', new_bibliographic_entity_path(bibliographic) %></td>
+	        <td><%= link_to 'Add Evidence', new_bibliographic_entity_path(bibliographic) %></td>
 	    <% end #if%>
       </tr>
     <% end %>

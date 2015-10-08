@@ -1,18 +1,32 @@
 <div class="container">
-	
-	<h1>New Entity</h1>
-	<h3><%= @bibliographic.title %></h3>
+	<h3>New Evidence</h3>
 	<table class="table">
-		<th>title</th>
-		<th>author</th>
-		<th>year</th>
-		<tr>
-			<td><%= @bibliographic.title%></td>
-			<td><%= @bibliographic.author%></td>
+	  <th>Title</th>
+	  <th>Author</th>
+	  <th>Time</th>
+	  <th>Source</th>
+	  <th>Book</th>
+	  <th>Publisher</th>
+	  <th>Doi</th>
+	  <th>Number</th>
+	  <th>Page</th>
+	  <th>Month</th>
+	  <th>Rating</th>
+		  <tr>
+			<td><%= @bibliographic.title %></td>
+			<td><%= @bibliographic.author %></td>
 			<td><%= @bibliographic.year.to_date %></td>
-		</tr>
+			<td><%= @bibliographic.source %></td>
+			<td><%= @bibliographic.book %></td>
+			<td><%= @bibliographic.publisher %></td>
+			<td><%= @bibliographic.doi %></td>
+			<td><%= @bibliographic.number %></td>
+			<td><%= @bibliographic.page %></td>
+			<td><%= @bibliographic.month %></td>
+			<td><%= @bibliographic.rating %></td>
+		  </tr>
+	  </tbody>
 	</table>
-
 	<%= render 'form' %>
 
 </div>

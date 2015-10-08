@@ -2,7 +2,6 @@
   <% if @entity.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@entity.errors.count, "error") %> prohibited this entity from being saved:</h2>
-
       <ul>
       <% @entity.errors.full_messages.each do |message| %>
         <li><%= message %></li>
@@ -10,7 +9,6 @@
       </ul>
     </div>
   <% end %>
-
   <div class="form-group">
     <%= f.label :research_aim %><br>
     <%= f.text_area :research_aim, class: 'form-control' %>
@@ -55,6 +53,6 @@
     <%= f.select :methodologies, Methodology.all.collect {|m| [m.name, m.id]}, {}, {class: 'form-control', multiple: true} %>
   </div>
   <div class="form-group">
-    <%= f.submit('Save', class: 'btn btn-primary') %>
+    <%= f.submit('Save', class: 'btn') %></br></br></br></br></br>
   </div>
 <% end %>
