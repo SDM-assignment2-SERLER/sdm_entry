@@ -1,6 +1,32 @@
-<h1>Editing Entity</h1>
-
+<h3>Edit Evidence</h3>
+<table class="table">
+  <th>Title</th>
+  <th>Author</th>
+  <th>Time</th>
+  <th>Source</th>
+  <th>Book</th>
+  <th>Publisher</th>
+  <th>Doi</th>
+  <th>Number</th>
+  <th>Page</th>
+  <th>Month</th>
+  <th>Rating</th>
+  <tr>
+    <td><%= @bibliographic.title %></td>
+    <td><%= @bibliographic.author %></td>
+    <td><%= @bibliographic.year.to_date %></td>
+    <td><%= @bibliographic.source %></td>
+    <td><%= @bibliographic.book %></td>
+    <td><%= @bibliographic.publisher %></td>
+    <td><%= @bibliographic.doi %></td>
+    <td><%= @bibliographic.number %></td>
+    <td><%= @bibliographic.page %></td>
+    <td><%= @bibliographic.month %></td>
+    <td><%= @bibliographic.rating %></td>
+  </tr>
+  </tbody>
+</table>
 <%= render 'form' %>
 
-<%= link_to 'Show', [@bibliographic, @entity] %> |
-<%= link_to 'Back', bibliographic_entities_path %>
+<!--<%= link_to 'Show', [@bibliographic, @entity] %> |
+<%= link_to 'Back', bibliographic_entities_path %>-->

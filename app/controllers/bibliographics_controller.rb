@@ -4,7 +4,7 @@ class BibliographicsController < ApplicationController
   # GET /bibliographics
   # GET /bibliographics.json
   def index
-    @bibliographics = current_user.bibliographics.waiting.all
+    @bibliographics = current_user.bibliographics.all
   end
 
   # GET /bibliographics/1

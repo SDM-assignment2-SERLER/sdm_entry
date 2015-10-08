@@ -1,9 +1,10 @@
-<%=  to = (action_name == 'mod_edit')? 'mod_index_bibliographics' : 'bibliographics' %>
+<div hidden>
+  <%=  to = (action_name == 'mod_edit')? 'mod_index_bibliographics' : 'bibliographics' %>
+</div>
 <%= form_for(@bibliographic) do |f| %>
   <% if @bibliographic.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@bibliographic.errors.count, "error") %> prohibited this bibliographic from being saved:</h2>
-
+      <h2><%= pluralize(@bibliographic.errors.count, "error") %> prohibited this article from being saved:</h2>
       <ul>
       <% @bibliographic.errors.full_messages.each do |message| %>
         <li><%= message %></li>
@@ -11,58 +12,74 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
+  <div class="row"><div class="col-md-8 col-md-offset-2">
+    <div class="field">
+      <%= f.label :title %><%= f.text_field :title,class:'form-control'%>
+    </div>
+  </div></div>
+  <div class="row"><div class="col-md-8 col-md-offset-2">
+    <div class="field">
+      <%= f.label :author %><br>
+      <%= f.text_field :author ,class:'form-control'%>
+    </div ></div ></div >
+  <div class="row"><div class="col-md-8 col-md-offset-2">
+    <div class="field">
+    <%= f.label :Time %><br>
+    <%= f.date_select :year%>
   </div>
-  <div class="field">
-    <%= f.label :author %><br>
-    <%= f.text_field :author %>
-  </div >
-  <div class="field">
-    <%= f.label :year %><br>
-    <%= f.date_select :year %>
+  </div></div>
+  <div class="row"><div class="col-md-8 col-md-offset-2">
+    <div class="field">
+    <%= f.label :Source %><br>
+    <%= f.text_field :source,class:'form-control' %>
   </div>
-  <div class="field">
-    <%= f.label :source %><br>
-    <%= f.text_field :source %>
-  </div>
-  <div class="field">
+  </div></div>
+  <div class="row"><div class="col-md-8 col-md-offset-2">
+    <div class="field">
     <%= f.label :book %><br>
-    <%= f.text_field :book %>
+    <%= f.text_field :book,class:'form-control' %>
   </div>
-  <div class="field">
+  </div></div>
+  <div class="row"><div class="col-md-8 col-md-offset-2">
+    <div class="field">
     <%= f.label :publisher %><br>
-    <%= f.text_field :publisher %>
+    <%= f.text_field :publisher ,class:'form-control'%>
   </div>
-  <div class="field">
+  </div></div>
+  <div class="row"><div class="col-md-8 col-md-offset-2">
+    <div class="field">
     <%= f.label :doi %><br>
-    <%= f.text_field :doi %>
+    <%= f.text_field :doi ,class:'form-control'%>
   </div>
-  <div class="field">
+  </div></div>
+  <div class="row"><div class="col-md-8 col-md-offset-2">
+    <div class="field">
     <%= f.label :number %><br>
-    <%= f.number_field :number %>
-  </div>
-  <div class="field">
+    <%= f.number_field :number ,class:'form-control'%>
+  </div></div></div>
+  <div class="row"><div class="col-md-8 col-md-offset-2">
+    <div class="field">
     <%= f.label :page %><br>
-    <%= f.text_field :page %>
-  </div>
-  <div class="field">
+    <%= f.text_field :page ,class:'form-control'%>
+  </div></div></div>
+  <div class="row"><div class="col-md-8 col-md-offset-2">
+    <div class="field">
     <%= f.label :month %><br>
-    <%= f.text_field :month %>
-  </div>
-  <%= f.hidden_field(:to, value: to)%>
-  <% if %w[new edit].include?(action_name) %>
-  <div id="rating"></div>
+    <%= f.text_field :month,class:'form-control' %>
+  </div></div></div>
+  <div class="row"><div class="col-md-8 col-md-offset-2">
+    <%= f.hidden_field(:to, value: to)%>
+  <% if %w[new edit mod_edit].include?(action_name) %>
+    <%= f.label :Rating %><br><div id="rating"></div>
   <% end #if%>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  </div></div>
+  <div class="row"><div class="col-md-8 col-md-offset-2">
+    <div class="actions">
+    </br><%= f.submit "Submit",class:'btn' %></br></br></br></br></br>
+  </div></div></div>
 <% end %>
 
 <script type="text/javascript">
-
 $(function() {
   $('#rating').raty({path: '/', scoreName: 'bibliographic[rating]', score: <%= @bibliographic.present? ? @bibliographic.rating : 0 %>});
 });
