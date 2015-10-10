@@ -1,3 +1,15 @@
+# == Schema Information
+#
+# Table name: methodologies
+#
+#  id         :integer          not null, primary key
+#  name       :string
+#  sort       :integer
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#  desc       :string
+#
+
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:

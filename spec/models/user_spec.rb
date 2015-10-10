@@ -18,14 +18,21 @@
 #  role                   :string           default("user")
 #
 
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+require 'rails_helper'
+describe User, type: :model do
 
-# This model initially had no columns defined.  If you add columns to the
-# model remove the '{}' from the fixture names and add the columns immediately
-# below each fixture, per the syntax in the comments below
-#
-one: {}
-# column: value
-#
-two: {}
-#  column: value
+
+	it 'should create bibliographic' do
+		b = Bibliographic.create(title: 'test', author: 'me')
+		expect(b.title).to eql('test')
+		expect(b.author).to eql('me')
+		expect(b.states).to eql('waiting')
+		expect(b.persisted?).to be_truthy
+
+	    user = FactoryGirl.create(:user)
+	    user.bibliographics << b
+
+	    expect(user.bibliographics.length).to eql(1)
+	end
+	
+end
