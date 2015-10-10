@@ -2,3 +2,4 @@ language: ruby
 rvm:
   - ruby-2.2.1
 script: rspec -f doc
+sudo: false
