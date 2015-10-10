@@ -26,9 +26,14 @@ class BibliographicsController < ApplicationController
   def create
     the_param = bibliographic_params
     to = the_param.delete(:to)
-    @bibliographic = Bibliographic.new(the_param)
-    @bibliographic.user = current_user
+    bit = the_param.delete(:bit)
+    if bit.present?
+      @bibliographic = parse_info_from(bit)
+    else
+      @bibliographic = Bibliographic.new(the_param)
+    end
 
+    @bibliographic.user = current_user
     respond_to do |format|
       if @bibliographic.save
         format.html { redirect_to send(to.to_s.concat('_path')), notice: 'Bibliographic was successfully created.' }
@@ -38,6 +43,10 @@ class BibliographicsController < ApplicationController
         format.json { render json: @bibliographic.errors, status: :unprocessable_entity }
       end
     end
+  end
+
+  def parse_info_from(bit)
+    Bibliographic.new.parsed_by_bit(bit)
   end
 
   # PATCH/PUT /bibliographics/1
@@ -105,6 +114,6 @@ class BibliographicsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def bibliographic_params
-      params.require(:bibliographic).permit(:title, :author, :year, :source, :book, :publisher, :doi, :number, :page, :month, :to, :rating)
+      params.require(:bibliographic).permit(:title, :author, :year, :source, :book, :publisher, :doi, :number, :page, :month, :to, :rating, :bit)
     end
 end
