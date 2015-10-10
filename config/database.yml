@@ -81,5 +81,5 @@ test:
 production:
   <<: *default
   database: sdm_entry_production
-  username: sdm_entry
-  password: <%= ENV['SDM_ENTRY_DATABASE_PASSWORD'] %>
+  #username: sdm_entry
+  #password: <%= ENV['SDM_ENTRY_DATABASE_PASSWORD'] %>
