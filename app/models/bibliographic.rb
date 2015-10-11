@@ -28,13 +28,13 @@ class Bibliographic < ActiveRecord::Base
 	belongs_to :user
 	has_one :entity
 
-	def month_enum
-		{'jan': 1, 'feb': 2}
-	end
+	#def month_enum
+	#	{'jan': 1, 'feb': 2}
+	#end
 
-	def month_name_to_int(name)
-		month_enum[name]
-	end
+	#def month_name_to_int(name)
+	#	month_enum[name]
+	#end
 
 
 	def parsed_by_bit(bit)
