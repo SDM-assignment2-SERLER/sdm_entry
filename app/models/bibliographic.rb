@@ -38,7 +38,6 @@ class Bibliographic < ActiveRecord::Base
 
 
 	def parsed_by_bit(bit)
-
 		b = BibTeX.parse(bit.strip)
 		the_hash = b.to_hash[:bibliography].first
 		if the_hash[:year].present?
@@ -56,5 +55,6 @@ class Bibliographic < ActiveRecord::Base
 		tmp = tmp.sub('}', '')
 		tmp
 	end
+
 
 end

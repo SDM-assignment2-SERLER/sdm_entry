@@ -55,6 +55,12 @@ class BibliographicsController < ApplicationController
     respond_to do |format|
       the_param = bibliographic_params
       to = the_param.delete(:to)
+      bit = the_param.delete(:bit)
+      #if bit.present?
+       # @bibliographic = parse_info_from(bit)
+      #else
+       # @bibliographic = Bibliographic.new(the_param)
+      #end
       if @bibliographic.update(the_param)
         format.html { redirect_to send(to.to_s.concat('_path')), notice: 'Bibliographic was successfully updated.' }
         format.json { render :show, status: :ok, location: @bibliographic }
