@@ -1,0 +1,102 @@
+<div class="row">
+  <div class="col-md-8">
+
+  <h3>What's NEW today?</h3>
+  <table class="table">
+	<thead>
+	<tr>
+	  <th>Title</th>
+	  <th>Submitter</th>
+	  <th>Rating</th>
+	</tr>
+	</thead>
+
+	<tbody>
+		<tr>
+		  <td>An empirical study of using planning poker for user story estimation</td>
+		  <td>Jennifer</td>
+		  <td>4</td>
+		</tr>
+		<tr>
+		  <td>A capstone course on agile software development using Scrum</td>
+		  <td>Daniel</td>
+		  <td>4</td>
+		</tr>
+		<tr>
+		  <td>Fully distributed scrum: The secret sauce for hyperproductive offshored development teams</td>
+		  <td>Zoe</td>
+		  <td>5</td>
+		</tr>
+		<tr>
+		  <td> Improving Estimations in Agile Projects: issues and avenues</td>
+		  <td>Jay</td>
+		  <td>3</td>
+		</tr>
+		<tr>
+		  <td> Analyses of an agile methodology implementation</td>
+		  <td>Du Tingting</td>
+		  <td>5</td>
+		</tr>
+		<tr>
+		  <td>On using planning poker for estimating user stories</td>
+		  <td>Sonny</td>
+		  <td>2</td>
+		</tr>
+	</tbody>
+  </table>
+  </div>
+
+  <div class="col-md-4 col-offset-8">
+	<h3>For Jim or other new users</h3>
+	<h5>This system has four roles: submitter, moderator, analyst and admin, sorry that we haven't done the admin part</h5>
+	<h5>As we are responsible for "Entry" part, we did not do the register function, so please use the following username & password to login</h5>
+	<table class="table">
+	  <thead>
+	  <tr>
+		<th>Username</th>
+		<th>Password</th>
+		<th>Role</th>
+	  </tr>
+	  </thead>
+
+	  <tbody>
+	  <tr>
+		<td>submitter@gmail.com</td>
+		<td>11111111</td>
+		<td>submitter</td>
+	  </tr>
+	  <tr>
+		<td>mod@gmail.com</td>
+		<td>11111111</td>
+		<td>moderator</td>
+	  </tr>
+	  <tr>
+		<td>ana@gmail.com</td>
+		<td>11111111</td>
+		<td>analyst</td>
+	  </tr>
+	  </tbody>
+	</table>
+	<h3>BibTex Example</h3>
+	@article{bygstad2008software,
+	title={Software development methods and usability: Perspectives from a survey in the software industry in Norway},
+	author={Bygstad, Bendik and Ghinea, Gheorghita and Brevik, Eivind},
+	journal={Interacting with computers},
+	volume={20},
+	number={3},
+	pages={375--385},
+	year={2008},
+	publisher={Oxford University Press}
+	}
+  </div>
+</div>
+
+
+  <div class="row">
+	<% if @href.present? %>
+		<%= link_to 'View List', @href, class: 'btn btn-primary' %>
+	<% end #if%>
+	<% if @add_url.present? %>
+		<%= link_to 'Add Article', @add_url, class: 'btn btn-default' %>
+	<% end #if%>
+  </div>

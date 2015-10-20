@@ -29,6 +29,7 @@ class BibliographicsController < ApplicationController
     bit = the_param.delete(:bit)
     if bit.present?
       @bibliographic = parse_info_from(bit)
+      @bibliographic.rating = the_param.delete(:rating) || 0
     else
       @bibliographic = Bibliographic.new(the_param)
     end
