@@ -15,7 +15,7 @@
 		  <tr>
 			<td><%= @bibliographic.title %></td>
 			<td><%= @bibliographic.author %></td>
-			<td><%= @bibliographic.year.to_date %></td>
+			<td><%= @bibliographic.year.to_date rescue '' %></td>
 			<td><%= @bibliographic.source %></td>
 			<td><%= @bibliographic.book %></td>
 			<td><%= @bibliographic.publisher %></td>

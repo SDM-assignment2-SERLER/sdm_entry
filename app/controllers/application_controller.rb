@@ -6,16 +6,16 @@ class ApplicationController < ActionController::Base
 
   protected
 
-  def after_sign_in_path_for(resource)
-  	if current_user.has_role?('user')
-  		bibliographics_path
-  	elsif current_user.has_role?('mod')
-  		mod_index_bibliographics_path
-  	elsif current_user.has_role?('ana')
-  		confirmed_list_bibliographics_path
-  	else
-  		bibliographics_path
-  	end #if
-  end
+  # def after_sign_in_path_for(resource)
+  	# if current_user.has_role?('user')
+  	# 	bibliographics_path
+  	# elsif current_user.has_role?('mod')
+  	# 	mod_index_bibliographics_path
+  	# elsif current_user.has_role?('ana')
+  	# 	confirmed_list_bibliographics_path
+  	# else
+  	# 	bibliographics_path
+  	# end #if
+  # end
 
 end

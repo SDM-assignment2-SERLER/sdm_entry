@@ -26,15 +26,15 @@ class EntitiesController < ApplicationController
   # POST /entities.json
   def create
     the_param = entity_params
+    to = the_param.delete(:to)
+
     research_methods = the_param.delete(:research_methods)
     research_participants = the_param.delete(:research_participants)
     evidence_methods = the_param.delete(:evidence_methods)
     methodologies = the_param.delete(:methodologies)
 
-
     @entity = Entity.new(the_param)
     @entity.bibliographic = @bibliographic
-
     @entity.research_methods = ResearchMethod.where(id: research_methods).all
     @entity.research_participants = ResearchParticipant.where(id: research_participants).all
     @entity.evidence_methods = EvidenceMethod.where(id: evidence_methods).all
@@ -43,6 +43,12 @@ class EntitiesController < ApplicationController
 
     respond_to do |format|
       if @entity.save
+
+        # format.html { redirect_to [@bibliographic, @entity], notice: 'Entity was successfully created.' }
+        format.html { redirect_to confirmed_list_bibliographics_path, notice: 'Entity was successfully created.' }
+
+        #format.html { redirect_to send(to.to_s.concat('_path')), notice: 'Bibliographic was successfully created.' }
+
         format.html { redirect_to [@bibliographic, @entity], notice: 'Entity was successfully created.' }
         format.json { render :show, status: :created, location: @entity }
       else
@@ -55,9 +61,23 @@ class EntitiesController < ApplicationController
   # PATCH/PUT /entities/1
   # PATCH/PUT /entities/1.json
   def update
+    the_param = entity_params
+    to = the_param.delete(:to)
+
+    research_methods = the_param.delete(:research_methods)
+    research_participants = the_param.delete(:research_participants)
+    evidence_methods = the_param.delete(:evidence_methods)
+    methodologies = the_param.delete(:methodologies)
+
+    @entity.bibliographic = @bibliographic
+    @entity.research_methods = ResearchMethod.where(id: research_methods).all
+    @entity.research_participants = ResearchParticipant.where(id: research_participants).all
+    @entity.evidence_methods = EvidenceMethod.where(id: evidence_methods).all
+    @entity.methodologies = Methodology.where(id: methodologies).all
+
     respond_to do |format|
-      if @entity.update(entity_params)
-        format.html { redirect_to @entity, notice: 'Entity was successfully updated.' }
+      if @entity.update(the_param)
+        format.html { redirect_to confirmed_list_bibliographics_path, notice: 'Entity was successfully updated.' }
         format.json { render :show, status: :ok, location: @entity }
       else
         format.html { render :edit }
